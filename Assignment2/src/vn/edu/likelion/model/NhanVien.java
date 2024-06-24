@@ -20,19 +20,6 @@ public class NhanVien implements IEmployee {
         this.departmentName = departmentName;
     }
 
-    // Show infor of employee
-    @Override
-    public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        return "NhanVien{" +
-                "employeeId='" + employeeId + '\'' +
-                ", employeeName='" + employeeName + '\'' +
-                ", age=" + age +
-                ", joinDate=" + joinDate.format(formatter) +
-                ", departmentName='" + departmentName + '\'' +
-                '}';
-    }
-
     public String getEmployeeId() {
         return employeeId;
     }

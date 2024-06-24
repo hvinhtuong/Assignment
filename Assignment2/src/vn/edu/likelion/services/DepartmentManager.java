@@ -67,11 +67,10 @@ public class DepartmentManager {
         }
 
         System.out.println("----------------------------------------------");
-        System.out.println("----------PHÒNG: " + department.getDepartmentName() + "----------");
+        System.out.println("----------PHÒNG: " + department.getDepartmentName() + "-------------------");
         System.out.println("----------------------------------------------");
         System.out.println("ID: " + department.getDepartmentId());
         System.out.println("Số lượng nhân viên: " + department.totalEmployees());
-
         if (department.totalEmployees() > 0) {
             System.out.println("\nDanh sách nhân viên:");
             for (IEmployee employee : department.getEmployees()) {
@@ -120,6 +119,10 @@ public class DepartmentManager {
             System.err.println("Không tìm thấy phòng ban có ID: " + departmentId);
             return;
         }
+
+        // Show old of department
+        System.out.println("Thông tin phòng ban hiện tại:");
+        System.out.println("Tên Phòng Ban: " + department.getDepartmentName());
 
         System.out.print("Nhập tên phòng ban mới: ");
         String newDepartmentName = scanner.nextLine();
@@ -198,7 +201,9 @@ public class DepartmentManager {
         }
     }
 
-    // Phương thức xem danh sách phòng ban (đã cải tiến)
+     /*
+      * listDepartments - show list department
+      */
     public void listDepartments() {
         if (departments.isEmpty()) {
             System.err.println("Hện tại không có phòng ban nào.");
@@ -218,7 +223,15 @@ public class DepartmentManager {
       * listEmployees - Show all employee order by department
       */
     public void listEmployees() {
-        if (departments.isEmpty()) {
+        boolean hasEmployees = false;
+        for (PhongBan department : departments) {
+            if (!department.getEmployees().isEmpty()) {
+                hasEmployees = true;
+                break;
+            }
+        }
+
+        if (!hasEmployees) { // Kiểm tra cờ hasEmployees
             System.err.println("Không có nhân viên nào.");
             return;
         }
