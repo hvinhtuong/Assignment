@@ -1,46 +1,46 @@
-# Ứng dụng Quản lý Nhân viên Java
+# Java Employee Management Application
 
-Ứng dụng Java đơn giản để quản lý nhân viên và phòng ban.
+A simple Java application for managing employees and departments.
 
-## Tính năng
+## Features
 
-1.  **Quản lý phòng ban:**
-    *   Xem danh sách phòng ban (STT, ID, tên, số lượng nhân viên).
-    *   Xem chi tiết phòng ban (ID, tên, danh sách nhân viên).
-    *   Thêm phòng ban (tên, số lượng nhân viên dự kiến).
-    *   Cập nhật thông tin phòng ban (tên).
-    *   Xóa phòng ban.
+1.  **Department Management:**
+    *   View list of departments (No., ID, name, number of employees).
+    *   View department details (ID, name, list of employees).
+    *   Add department (name, expected number of employees).
+    *   Update department information (name).
+    *   Delete department.
 
-2.  **Quản lý nhân viên:**
-    *   Xem danh sách nhân viên (STT, ID, tên, tuổi, ngày giờ tham gia, phòng ban).
-    *   Xem chi tiết nhân viên (ID, tên, tuổi, ngày giờ tham gia, phòng ban).
-    *   Thêm nhân viên vào phòng ban (tên, tuổi).
-    *   Cập nhật thông tin nhân viên (tên, tuổi).
-    *   Xóa nhân viên.
+2.  **Employee Management:**
+    *   View list of employees (No., ID, name, age, join date & time, department).
+    *   View employee details (ID, name, age, join date & time, department).
+    *   Add employee to a department (name, age).
+    *   Update employee information (name, age).
+    *   Delete employee.
 
-## Ràng buộc
+## Constraints
 
-*   Tối đa 5 phòng ban.
-*   Tối đa 3 nhân viên mỗi phòng ban.
+*   Maximum of 5 departments.
+*   Maximum of 3 employees per department.
 
-## Cách sử dụng
+## How to Use
 
-1.  Chạy file `Main.java` để khởi động ứng dụng.
-2.  Chọn các chức năng từ menu để thực hiện các thao tác quản lý.
+1.  Run `Main.java` to start the application.
+2.  Choose options from the menu to perform management operations.
 
-## Cấu trúc dự án
+## Project Structure
 
-*   `NhanVien.java`: Lớp đại diện cho một nhân viên.
-*   `PhongBan.java`: Lớp đại diện cho một phòng ban.
-*   `DepartmentManager.java`: Lớp quản lý danh sách phòng ban và nhân viên.
-*   `Main.java`: Lớp chứa hàm `main()` để chạy ứng dụng.
+*   `NhanVien.java`: Class representing an employee.
+*   `PhongBan.java`: Class representing a department.
+*   `DepartmentManager.java`: Class managing the list of departments and employees.
+*   `Main.java`: Class containing the `main()` function to run the application.
 
-## Công nghệ sử dụng
+## Technologies Used
 
 *   Java
 *   java.time (LocalDateTime, DateTimeFormatter)
 *   java.util (List, ArrayList, Scanner)
 
-## Tác giả
+## Author
 
-[hvintuong]
+[Rains]
