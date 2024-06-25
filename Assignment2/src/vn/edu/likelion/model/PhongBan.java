@@ -1,5 +1,4 @@
 package vn.edu.likelion.model;
-
 import vn.edu.likelion.services.IDepartment;
 
 import java.util.ArrayList;
@@ -19,6 +18,7 @@ public class PhongBan implements IDepartment {
 
      /*
       * addEmployee - Add employee to department
+      * Author: hvinhtuong
       */
     public void addEmployee(NhanVien employee) {
         if (employees.size() < 3) {
@@ -30,6 +30,7 @@ public class PhongBan implements IDepartment {
 
      /*
       * removeEmployee - Remove employee
+      * Author: hvinhtuong
       */
     public void removeEmployee(NhanVien employee) {
         employees.remove(employee);
@@ -37,6 +38,7 @@ public class PhongBan implements IDepartment {
 
     /*
      * totalEmployees - Get total employee
+     * Author: hvinhtuong
      */
     public int totalEmployees() {
         return employees.size();
@@ -50,37 +52,13 @@ public class PhongBan implements IDepartment {
         return departmentName;
     }
 
-    public int getExpectEmployees() {
-        return expectEmployees;
-    }
-
     @Override
     public List<NhanVien> getEmployees() {
         return employees;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
     }
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
 
-    public void setExpectEmployees(int expectEmployees) {
-        this.expectEmployees = expectEmployees;
-    }
-
-     /*
-      * Show department information
-      */
-    @Override
-    public String toString() {
-        return "PhongBan{" +
-                "departmentId='" + departmentId + '\'' +
-                ", departmentName='" + departmentName + '\'' +
-                ", expectedEmployees='" + expectEmployees + '\'' +
-                ", employees=" + employees +
-                '}';
-    }
 }

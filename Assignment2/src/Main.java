@@ -1,7 +1,5 @@
 import vn.edu.likelion.services.DepartmentManager;
 
-import javax.swing.text.StyledEditorKit;
-import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,10 +9,8 @@ public class Main {
 
     public static void main(String[] args) {
         while (true) {
-            System.out.print("====================================================");
-            System.out.print("\n===================== LIKELION =====================");
+            System.out.print("\n================== L I K E L I O N =================");
             System.out.println("\n======= QUẢN LÝ NHÂN VIÊN CỦA CÁC PHÒNG BAN ========");
-            System.out.println("====================================================");
             System.out.printf("%-30s %-30s\n", "1. Xem danh sách phòng ban", "6. Cập nhật phòng ban");
             System.out.printf("%-30s %-30s\n", "2. Xem chi tiết phòng ban", "7. Xóa phòng ban");
             System.out.printf("%-30s %-30s\n", "3. Xem danh sách nhân viên", "8. Thêm nhân viên");
@@ -131,7 +127,7 @@ public class Main {
                     }
                     break;
                 case 0:
-                    System.out.println("Kết thúc chương trình.");
+                    System.out.println("Kết thúc chương trình. Hẹn gặp lại!");
                     return;
                 default:
                     System.out.println("Lựa chọn không hợp lệ.");

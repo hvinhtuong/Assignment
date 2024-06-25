@@ -1,0 +1,46 @@
+
+Các module chính:
+
+1.  Model
+- NhanVien.java:
+- Đại diện cho một nhân viên trong công ty.
+- Lưu trữ thông tin như ID, tên, tuổi, ngày giờ tham gia phòng ban và tên phòng ban.
+- Cung cấp các phương thức để lấy và thiết lập thông tin nhân viên.
+- PhongBan.java:
+- Đại diện cho một phòng ban trong công ty.
+- Lưu trữ thông tin như ID, tên, số lượng nhân viên dự kiến và danh sách nhân viên thực tế.
+- Cung cấp các phương thức để thêm, xóa, lấy thông tin nhân viên, và tính tổng số nhân viên.
+
+2.  Services
+- IDepartment.java:
+- Interface định nghĩa các phương thức cơ bản cần có của một phòng ban.
+- IEmployee.java:
+- Interface định nghĩa các phương thức cơ bản cần có của một nhân viên.
+- DepartmentManager.java:
+- Lớp cốt lõi của ứng dụng, thực hiện các chức năng quản lý phòng ban và nhân viên.
+- Lưu trữ danh sách các phòng ban và quản lý ID tự động tăng cho phòng ban và nhân viên.
+- Cung cấp các phương thức để:
+- Thêm, xóa, cập nhật và xem chi tiết phòng ban.
+- Thêm, xóa, cập nhật và xem chi tiết nhân viên.
+- Xem danh sách phòng ban và nhân viên.
+- Tìm kiếm phòng ban và nhân viên theo ID.
+
+3.  Main.java (Chương trình chính):
+- Chứa hàm main() để khởi động ứng dụng.
+- Hiển thị menu tương tác với người dùng.
+- Xử lý lựa chọn của người dùng và gọi các phương thức tương ứng trong DepartmentManager để thực hiện các chức năng quản lý.
+- Xử lý các ngoại lệ nhập liệu không hợp lệ.
+
+Luồng xử lý chính:
+
+1.  Người dùng khởi động ứng dụng bằng cách chạy file Main.java.
+2.  Menu chính được hiển thị, liệt kê các chức năng quản lý phòng ban và nhân viên.
+3.  Người dùng chọn một chức năng bằng cách nhập số tương ứng.
+4.  Ứng dụng đọc lựa chọn của người dùng, xử lý ngoại lệ nếu có.
+5.  Ứng dụng gọi phương thức tương ứng trong DepartmentManager để thực hiện chức năng được chọn.
+6.  Kết quả được hiển thị cho người dùng.
+7.  Quá trình lặp lại từ bước 2 cho đến khi người dùng chọn thoát.
+
+- Ứng dụng sử dụng ArrayList để lưu trữ danh sách phòng ban.
+- Các lớp NhanVien và PhongBan được thiết kế để lưu trữ thông tin và cung cấp các phương thức cần thiết cho việc quản lý.
+- Lớp DepartmentManager đóng vai trò trung tâm, điều phối các hoạt động quản lý và tương tác với các lớp khác.

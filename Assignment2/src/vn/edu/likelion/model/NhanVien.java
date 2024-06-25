@@ -1,9 +1,7 @@
 package vn.edu.likelion.model;
-
 import vn.edu.likelion.services.IEmployee;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class NhanVien implements IEmployee {
     private String employeeId;
@@ -40,20 +38,12 @@ public class NhanVien implements IEmployee {
         return departmentName;
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public void setJoinDate(LocalDateTime joinDate) {
-        this.joinDate = joinDate;
     }
 
     public void setDepartmentName(String departmentName) {

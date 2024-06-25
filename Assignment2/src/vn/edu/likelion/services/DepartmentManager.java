@@ -9,6 +9,7 @@ import java.util.*;
 
 /*
  * DepartmentManager - Manage departments
+ * Author: hvinhtuong
  */
 public class DepartmentManager {
     private List<PhongBan> departments = new ArrayList<>();
@@ -24,20 +25,22 @@ public class DepartmentManager {
                 return;
             }
         }
-            PhongBan department = new PhongBan(String.valueOf(departmentIdCounter++), departmentName, expectEmployees);
-            departments.add(department);
-            System.out.println("Đã thêm phòng ban: " + department.getDepartmentName() + " thành công!");
+        PhongBan department = new PhongBan(String.valueOf(departmentIdCounter++), departmentName, expectEmployees);
+        departments.add(department);
+        System.out.println("Đã thêm phòng ban - " + department.getDepartmentName() + " - thành công!");
     }
 
-     /*
-      * Get list of department
-      */
+    /*
+     * Get list of department
+     * Author: hvinhtuong
+     */
     public List<PhongBan> getDepartments() {
         return departments;
     }
 
     /*
      * deleteDepartment - Delete a department
+     * Author: hvinhtuong
      */
     public void deleteDepartment(String departmentId) {
         PhongBan departmentToRemove = null;
@@ -56,9 +59,10 @@ public class DepartmentManager {
         }
     }
 
-     /*
-      * detailDepartment - Show department detail
-      */
+    /*
+     * detailDepartment - Show department detail
+     * Author: hvinhtuong
+     */
     public void detailDepartment(String departmentId) {
         PhongBan department = getDepartmentById(departmentId);
         if (department == null) {
@@ -77,22 +81,23 @@ public class DepartmentManager {
                 System.out.println(" - " + employee.getEmployeeName() + " (ID: " + employee.getEmployeeId() + ")");
             }
         } else {
-            System.err.println("Phòng ban chưa có nhân viên.");
+            System.out.println("Phòng ban chưa có nhân viên.");
         }
     }
 
     /*
      * addEmployee - Add an employee
+     * Author: hvinhtuong
      */
     public void addEmployee(String departmentId) {
         PhongBan phongBan = getDepartmentById(departmentId);
         if (phongBan == null) {
-            System.err.println("Không tìm thấy phòng ban có ID: " + departmentId);
+            System.out.println("Không tìm thấy phòng ban có ID: " + departmentId);
             return;
         }
 
         if (phongBan.totalEmployees() >= 3) {
-            System.err.println("Phòng ban đã đủ số lượng nhân viên tối đa (3 người).");
+            System.out.println("Phòng ban đã đủ số lượng nhân viên tối đa (3 người).");
             return;
         }
 
@@ -110,13 +115,14 @@ public class DepartmentManager {
     }
 
 
-     /*
-      * updateDepartment - Update department information
-      */
+    /*
+     * updateDepartment - Update department information
+     * Author: hvinhtuong
+     */
     public void updateDepartment(String departmentId) {
         PhongBan department = getDepartmentById(departmentId);
         if (department == null) {
-            System.err.println("Không tìm thấy phòng ban có ID: " + departmentId);
+            System.out.println("Không tìm thấy phòng ban có ID: " + departmentId);
             return;
         }
 
@@ -131,18 +137,24 @@ public class DepartmentManager {
         for (PhongBan existingDepartment : departments) {
             if (existingDepartment.getDepartmentName().equalsIgnoreCase(newDepartmentName) &&
                     !existingDepartment.getDepartmentId().equals(departmentId)) {
-                System.err.println("Tên phòng ban đã tồn tại!");
+                System.out.println("Tên phòng ban đã tồn tại!");
                 return;
             }
+        }
+
+        // Update new department name for each of employee
+        for (NhanVien employee : department.getEmployees()) {
+                employee.setDepartmentName(newDepartmentName);
         }
 
         department.setDepartmentName(newDepartmentName);
         System.out.println("Đã cập nhật thông tin phòng ban thành công!");
     }
 
-     /*
-      * updateEmployee - Update employee infor
-      */
+    /*
+     * updateEmployee - Update employee infor
+     * Author: hvinhtuong
+     */
     public void updateEmployee(String employeeId) {
         NhanVien employee = getEmployeeById(employeeId);
         if (employee == null) {
@@ -169,16 +181,17 @@ public class DepartmentManager {
                 int newAge = Integer.parseInt(ageInput);
                 employee.setAge(newAge);
             } catch (NumberFormatException e) {
-                System.err.println("Tuổi không hợp lệ.");
+                System.out.println("Tuổi không hợp lệ.");
             }
         }
 
         System.out.println("Đã cập nhật thông tin nhân viên thành công!");
     }
 
-     /*
-      * deleteEmployee - Delete employee
-      */
+    /*
+     * deleteEmployee - Delete employee
+     * Author: hvinhtuong
+     */
     public void deleteEmployee(String employeeId) {
         NhanVien employeeToRemove = null;
         for (PhongBan department : departments) {
@@ -197,16 +210,17 @@ public class DepartmentManager {
         if (employeeToRemove != null) {
             System.out.println("Đã xóa nhân viên: " + employeeToRemove.getEmployeeName() + " thành công!");
         } else {
-            System.err.println("Không tìm thấy nhân viên có ID: " + employeeId);
+            System.out.println("Không tìm thấy nhân viên có ID: " + employeeId);
         }
     }
 
-     /*
-      * listDepartments - show list department
-      */
+    /*
+     * listDepartments - show list department
+     * Author: hvinhtuong
+     */
     public void listDepartments() {
         if (departments.isEmpty()) {
-            System.err.println("Hện tại không có phòng ban nào.");
+            System.out.println("Hện tại không có phòng ban nào.");
             return;
         }
 
@@ -219,9 +233,10 @@ public class DepartmentManager {
         }
     }
 
-     /*
-      * listEmployees - Show all employee order by department
-      */
+    /*
+     * listEmployees - Show all employee order by department
+     * Author: hvinhtuong
+     */
     public void listEmployees() {
         boolean hasEmployees = false;
         for (PhongBan department : departments) {
@@ -230,12 +245,10 @@ public class DepartmentManager {
                 break;
             }
         }
-
         if (!hasEmployees) {
-            System.err.println("Không có nhân viên nào.");
+            System.out.println("Không có nhân viên nào.");
             return;
         }
-
         System.out.println("STT | ID Nhân viên | Tên nhân viên | Tuổi | Thời gian tham gia | Phòng ban");
         System.out.println("---------------------------------------------------------------------");
         int stt = 1;
@@ -248,16 +261,16 @@ public class DepartmentManager {
         }
     }
 
-     /*
-      * detailEmployee - Show employee detail
-      */
+    /*
+     * detailEmployee - Show employee detail
+     * Author: hvinhtuong
+     */
     public void detailEmployee(String employeeId) {
         NhanVien employee = getEmployeeById(employeeId);
         if (employee == null) {
-            System.err.println("Không tìm thấy nhân viên có ID: " + employeeId);
+            System.out.println("Không tìm thấy nhân viên có ID: " + employeeId);
             return;
         }
-
         System.out.println("----------------------------------------------");
         System.out.println("----------NHÂN VIÊN: " + employee.getEmployeeName() + "----------");
         System.out.println("----------------------------------------------");
@@ -267,9 +280,10 @@ public class DepartmentManager {
         System.out.println("Phòng ban: " + employee.getDepartmentName());
     }
 
-     /*
-      * getEmployeeById - Get employee via Id
-      */
+    /*
+     * getEmployeeById - Get employee via Id
+     * Author: hvinhtuong
+     */
     public NhanVien getEmployeeById(String employeeId) {
         for (PhongBan department : departments) {
             for (NhanVien employee : department.getEmployees()) {
@@ -281,9 +295,10 @@ public class DepartmentManager {
         return null;
     }
 
-     /*
-      * getDepartmentById - Get department via Id
-      */
+    /*
+     * getDepartmentById - Get department via Id
+     * Author: hvinhtuong
+     */
     public PhongBan getDepartmentById(String departmentId) {
         for (PhongBan department : departments) {
             if (department.getDepartmentId().equals(departmentId)) {
