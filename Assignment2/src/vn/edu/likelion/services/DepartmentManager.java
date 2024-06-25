@@ -231,7 +231,7 @@ public class DepartmentManager {
             }
         }
 
-        if (!hasEmployees) { // Kiểm tra cờ hasEmployees
+        if (!hasEmployees) {
             System.err.println("Không có nhân viên nào.");
             return;
         }
