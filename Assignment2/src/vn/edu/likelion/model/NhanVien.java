@@ -10,7 +10,7 @@ public class NhanVien implements IEmployee {
     private String employeeName;
     private int age;
     private LocalDateTime joinDate;
-    private String departmentName; // Lưu tên phòng ban để dễ hiển thị
+    private String departmentName;
 
     public NhanVien(String employeeId, String employeeName, int age, LocalDateTime joinDate, String departmentName) {
         this.employeeId = employeeId;
